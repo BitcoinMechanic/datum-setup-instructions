@@ -110,9 +110,11 @@ Use this to name your Blocks in lotto-mode. When splitting rewards on OCEAN, wha
 
 `Enter coinbase_tag_secondary (default: ): `
 
-Name your OCEAN blocks! ![elecktron-block](/images/elektron-block.png)
+Name your OCEAN blocks! 
 
-`Enter API listen_port (default: 7152): ``
+![elecktron-block](/images/elektron-block.png)
+
+`Enter API listen_port (default: 7152): `
 
 The port for your dashboard - this is the graphical interface for DATUM that will become available once this script is complete and your Bitcoin node is synced. (DATUM will not be able to start up until the node is synced).
 
