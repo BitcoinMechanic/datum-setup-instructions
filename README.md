@@ -79,7 +79,7 @@ Where do you want to store datum_gateway_config.json?
 Enter path (default: /home/bitcoin/datum):
 ```
 
-.
+Confirm or change as required.
 
 `Enter bitcoind rpcurl (default: localhost:28332): `
 
