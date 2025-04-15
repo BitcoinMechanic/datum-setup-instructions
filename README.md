@@ -194,7 +194,7 @@ This will do the above for the DATUM gateway service ensuring power cycles do no
 
 ## Monitoring Sync Progress
 
-Your Bitcoin node will now sync - you can check it's progress with the following:
+Your Bitcoin node will now sync - you can check its progress with the following:
 
 `tail -f /home/bitcoin/.bitcoin/data/debug.log`
 
