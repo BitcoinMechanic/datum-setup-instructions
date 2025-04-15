@@ -10,7 +10,7 @@
 - [Checking the Dashboard](#checking-the-dashboard)
 - [Modifying the Config Files](#modifying-the-config-files)
 
-### This guide will explain the various options presented to you in [this](https://github.com/Com320/OC-mech-datum-boxes) script which will be run during the installation methods presented [here](https://github.com/bitcoinmechanic/datum-guides).
+This guide will explain the various options presented to you in [this](https://github.com/Com320/OC-mech-datum-boxes) script which will be run during the installation methods presented [here](https://github.com/bitcoinmechanic/datum-guides).
 
 **Any of these settings can be changed after completing this script. Some basic configuration files can be trivially changed (i.e the secondary coinbase text in your DATUM gateway config used to label your OCEAN blocks) - others will be more fiddly, like the Debian user running your Bitcoin node and DATUM gateway.**
 
