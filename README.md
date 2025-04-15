@@ -198,7 +198,7 @@ Your Bitcoin node will now sync - you can check its progress with the following:
 
 `tail -f /home/bitcoin/.bitcoin/data/debug.log`
 
-![its-syncing](/images/its-syncing.png
+![its-syncing](/images/its-syncing.png)
 
 Stop watching with `ctrl C`
 
