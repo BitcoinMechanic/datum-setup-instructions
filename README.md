@@ -1,6 +1,22 @@
+# Bitcoin Knots node + DATUM gateway configuration walkthrough
+
+## Table of Contents
+
+- [Creating A User](#creating-a-user)
+- [Configuring Bitcoin](#configuring-bitcoin)
+- [Configuring DATUM](#configuring-datum)
+- [Monitoring Sync Progress](#monitoring-sync-progress)
+- [Mining](#mining)
+- [Checking the Dashboard](#checking-the-dashboard)
+- [Modifying the Config Files](#modifying-the-config-files)
+
 ### This guide will explain the various options presented to you in [this](https://github.com/Com320/OC-mech-datum-boxes) script which will be run during the installation methods presented [here](https://github.com/bitcoinmechanic/datum-guides).
 
 **Any of these settings can be changed after completing this script. Some basic configuration files can be trivially changed (i.e the secondary coinbase text in your DATUM gateway config used to label your OCEAN blocks) - others will be more fiddly, like the Debian user running your Bitcoin node and DATUM gateway.**
+
+## Creating A User
+
+(This will compile Bitcoin Knots and DATUM)
 
 ```
 Setting up user...
@@ -174,7 +190,7 @@ This will do the above for the DATUM gateway service ensuring power cycles do no
 
 **Script complete!**
 
-## Monitor Sync Progress
+## Monitoring Sync Progress
 
 Your Bitcoin node will now sync - you can check it's progress with the following:
 
