@@ -25,33 +25,23 @@ Whatever you enter here will be used to generate credentials using the rpcauth.p
 
 The relevant credentials will be inserted into your bitcoin.conf as appropriate and the generated password that gets inserted into the DATUM config later in the script will automatically be added too.
 
-```
-Enter location for bitcoin.conf (default: /home/bitcoin/.bitcoin/bitcoin.conf): 
-```
+`Enter location for bitcoin.conf (default: /home/bitcoin/.bitcoin/bitcoin.conf): `
 
 This file is the configuration file for the Bitcoin Knots node. Any changes you want to make to the way your node runs will likely require manually editing the file and restarting the node.
 
-```
-Enter location for data (default: /home/bitcoin/.bitcoin/data): 
-```
+`Enter location for data (default: /home/bitcoin/.bitcoin/data): `
 
 This is where the blockchain data will live along with a few other files.
 
-```
-Enter value for 'prune' (default: 550): 
-```
+`Enter value for 'prune' (default: 550): `
 
 By default, we suggest pruning, however it is fine to enter `0` here if you do not wish to prune. DATUM does not require an archival node.
 
-```
-Enter value for 'dbcache' (default: 100): 
-```
+`Enter value for 'dbcache' (default: 100): `
 
 This higher this value the faster your node will sync. (Unit = MB).
 
-```
-Enter value for 'rpcauth' (default: datumuser:31368a1605d56dde8882fc6bc785037a$a5fd79c67a23d3db18128f7c675acb684bb05dffce479fa1ebc4a916834f4163):
-```
+`Enter value for 'rpcauth' (default: datumuser:31368a1605d56dde8882fc6bc785037a$a5fd79c67a23d3db18128f7c675acb684bb05dffce479fa1ebc4a916834f4163):`
 
 Here, the generated rpcauth will be inserted into bitcoin.conf
 
@@ -69,12 +59,15 @@ Enter path (default: /home/bitcoin/datum):
 
 .
 
-```
-Enter bitcoind rpcurl (default: localhost:28332): 
-```
+`Enter bitcoind rpcurl (default: localhost:28332): `
 
 The default suggested here is what Bitcoin Knots will be listening on. If you don't use the default here, you must change what's in bitcoin.conf
 
 `Enter bitcoind rpcuser (default: datumuser): `
 
-This will automatically use what was generated earlier for RPC.
+This will automatically use what was generated earlier for RPC authentication.
+
+`Enter bitcoind rpcpassword (default: n26yiQyIl1qdbnz89jN3iP5DKhoWystOMXPV-cW-fi8): `
+Same again
+
+
