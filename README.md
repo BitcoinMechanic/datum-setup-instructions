@@ -16,6 +16,19 @@ This guide will explain the various options presented to you in [this](https://g
 
 **Any of these settings can be changed after completing this script. Some basic configuration files can be trivially changed (i.e the secondary coinbase text in your DATUM gateway config used to label your OCEAN blocks) - others will be more fiddly, like the Debian user running your Bitcoin node and DATUM gateway.**
 
+## Link To These Instructions
+
+It'll just point you here for help if you need it
+
+```
+  Hi, thanks for running this automated deployment solution that'll turn your Debian machine into a full-fledged Datum box!
+
+  If you need help or if this is the first time you're using this solution, you might find these instructions helpful:
+  https://github.com/BitcoinMechanic/datum-setup-instructions
+```
+
+Press Y to continue
+
 ## Creating A User
 
 (This will compile Bitcoin Knots and DATUM)
@@ -43,11 +56,11 @@ Whatever you enter here will be used to generate credentials using the rpcauth.p
 
 The relevant credentials will be inserted into your bitcoin.conf as appropriate and the generated password that gets inserted into the DATUM config later in the script will automatically be added too.
 
-`Enter location for bitcoin.conf (default: /home/bitcoin/.bitcoin/bitcoin.conf): `
+`Enter location for bitcoin.conf (default: /etc/bitcoin/bitcoin.conf): `
 
 This file is the configuration file for the Bitcoin Knots node. Any changes you want to make to the way your node runs will likely require manually editing the file and restarting the node.
 
-`Enter location for data (default: /home/bitcoin/.bitcoin/data): `
+`Enter location for data (default: /var/lib/bitcoind: `
 
 This is where the blockchain data will live along with a few other files.
 
@@ -57,7 +70,7 @@ This is where the blockchain data will live along with a few other files.
 
 By default, we suggest pruning, however it is fine to enter `0` here if you do not wish to prune. DATUM does not require an archival node.
 
-`Enter value for 'dbcache' (default: 100): `
+`Enter value for 'dbcache' (default: 450): `
 
 This higher this value the faster your node will sync. (Unit = MB).
 
@@ -65,12 +78,20 @@ This higher this value the faster your node will sync. (Unit = MB).
 
 Here, the generated rpcauth will be inserted into bitcoin.conf
 
+`Enter pruneduringinit value. This sets the maximum space (in MB) that can be used during initial sync before pruning. Default is 90% of available space in /var/lib/bitcoind. (default: 32899):` 
+
+As it says.
+
 ```
 Are these values correct?
 Is this correct? (y/n):
 ```
 
 Confirm correct as appropriate.
+
+`Do you want to set up bitcoin-cli to work without specifying --datadir? (y/n):`
+
+If this is a new machine just being used for this Bitcoin node and DATUM the suggested answer is `y`.
 
 ## Configuring DATUM
 
@@ -128,7 +149,7 @@ Use this to name your Blocks in lotto-mode. When splitting rewards on OCEAN, wha
 
 `Enter coinbase_tag_secondary (default: ): `
 
-Name your OCEAN blocks! 
+This is a pretty important one - name your OCEAN blocks! 
 
 ![elecktron-block](/images/elektron-block.png)
 
@@ -138,21 +159,19 @@ The port for your dashboard - this is the graphical interface for DATUM that wil
 
 **To access the dashboard head to the IP of the machine followed by :7152 or whatever port you set here.**
 
+`Enter API admin password (default: randomlygeneratedpass):`
+
+Set this to make protect sensitive parts of the GUI.
+
+`Allow API to modify config? (true/false) (default: false): `
+
+Set this if you'd like to mofidy your DATUM config from the GUI. (Will require the password).
+
 `Log to file? (true/false) (default: true): `
 `Enter log file path (default: /home/bitcoin/datum/logs/datum.log): `
-`Enter log level (0-3) (default: 0): `
+`Enter log level (0-3) (default: 2): `
 
-DATUM is still in beta so all logging is appreciated in case bugs are found! (Log level 0 grabs the most possible, 3 the least).
-
-`Enter pool host (default: datum-beta1.mine.ocean.xyz): `
-
-By default you will mine on OCEAN and split rewards with other OCEAN miners. If you do not wish to do this, remove what is written here. (Just put one space before pressing return).
-
-You can also replace this with any other DATUM supporting pool. At the time of writing, only OCEAN supports DATUM.
-
-`Enter pool port (default: 28915): `
-
-This is the port offered by OCEAN for miners using DATUM. It does not need to be removed if not wishing to split rewards on OCEAN and can just be left in all scenarios.
+DATUM is still in beta so all logging is appreciated in case bugs are found! (Log level 0 grabs the most possible, 5 the fewest).
 
 `Pass workers to pool? (true/false) (default: true): `
 
@@ -184,11 +203,18 @@ Do you want to enable and start the service now? (y/n):
 This will run Bitcoin Knots as a systemd service that will automatically run on startup - this means if your machine gets turned off, everything will JustWork™ upon restart without requiring manual intervention (assuming the device is set to automatically power on once power returns.)
 
 ```
+Using username from settings.json: bitcoin
+Is this correct? (y/n):
+```
+
+Confirm the user that you want to run the DATUM service.
+
+```
 File 'datum.service' has been created and user inserted correctly.
 Do you want to enable and start the service now? (y/n):
 ```
 
-This will do the above for the DATUM gateway service ensuring power cycles do not require manual intervention.
+This will do the same as with the Bitcoin Knots service.
 
 **Script complete!**
 
@@ -196,7 +222,7 @@ This will do the above for the DATUM gateway service ensuring power cycles do no
 
 Your Bitcoin node will now sync - you can check its progress with the following:
 
-`tail -f /home/bitcoin/.bitcoin/data/debug.log`
+`tail -f /var/lib/bitcoind/debug.log`
 
 ![its-syncing](/images/its-syncing.png)
 
